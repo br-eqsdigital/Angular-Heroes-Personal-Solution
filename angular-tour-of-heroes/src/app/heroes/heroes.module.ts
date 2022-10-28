@@ -1,5 +1,8 @@
+import { HeroDetailModule } from './../hero-detail/hero-detail/hero-detail.module';
+import { HeroDetailRoutingModule } from './../hero-detail/hero-detail-routing.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../services/in-memory-data.service';
@@ -13,14 +16,15 @@ import { HeroesComponent } from './heroes.component';
 
 @NgModule({
   declarations: [
-    MypipePipe,
     HeroesComponent,
-    HeroDetailComponent,
     MessagesComponent,
   ],
   imports: [
     FormsModule,
+    CommonModule,
     HeroesRoutingModule,
+    HeroDetailRoutingModule,
+    HeroDetailModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
       ]

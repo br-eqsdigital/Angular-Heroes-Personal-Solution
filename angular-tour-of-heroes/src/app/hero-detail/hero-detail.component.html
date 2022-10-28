@@ -1,5 +1,7 @@
+<u>Hero details works</u>
+
 <div *ngIf="hero">
-  <h2>{{hero.name | mypipe}} Details</h2>
+  <h2>{{hero!.name | mypipe}} Details</h2>
   <div><span>Id:</span> {{hero.id}}</div>
   <div>
     <label for="hero-name">Hero name:</label>
