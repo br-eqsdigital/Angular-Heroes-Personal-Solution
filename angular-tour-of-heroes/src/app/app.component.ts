@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { MessageService } from './services/message.service';
+import { MessagesComponent } from './messages/messages.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
