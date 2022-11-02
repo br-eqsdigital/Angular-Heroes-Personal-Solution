@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { Hero } from '../hero';
 import { HeroService } from '../services/hero.service';
 import { MessageService } from '../services/message.service';
 
 @Component({
-  selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
@@ -12,11 +12,17 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
   selectedHero?: Hero;
+  ngDestroy$ = new Subject();
 
   constructor(private heroService: HeroService, public messageService: MessageService) {}
 
   ngOnInit(): void {
     this.getHeroes();
+  }
+
+  ngOnDestroy(): void{
+    this.ngDestroy$.next(true);
+    this.ngDestroy$.complete();
   }
 
   onSelect(hero: Hero): void{
@@ -25,7 +31,10 @@ export class HeroesComponent implements OnInit {
 
   }
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes )
+    this.heroService.getHeroes()
+      .pipe(takeUntil(this.ngDestroy$))
+      .subscribe(heroes => this.heroes = heroes );
   }
+
 
 }

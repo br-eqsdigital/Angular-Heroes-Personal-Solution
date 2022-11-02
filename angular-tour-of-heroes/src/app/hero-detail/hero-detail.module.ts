@@ -1,8 +1,9 @@
 import { FormsModule } from '@angular/forms';
 import { MypipePipe } from './../my-pipes/mypipe.pipe';
 import { HeroDetailComponent } from './hero-detail.component';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HeroDetailRoutingModule } from './hero-detail-routing.module';
 
 
 @NgModule({
@@ -13,6 +14,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     FormsModule,
+    HeroDetailRoutingModule
   ]
+  ,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HeroDetailModule { }

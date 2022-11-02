@@ -1,4 +1,3 @@
-import { HeroDetailModule } from './../hero-detail/hero-detail/hero-detail.module';
 import { HeroDetailRoutingModule } from './../hero-detail/hero-detail-routing.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +23,6 @@ import { HeroesComponent } from './heroes.component';
     CommonModule,
     HeroesRoutingModule,
     HeroDetailRoutingModule,
-    HeroDetailModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
       ]

@@ -9,7 +9,7 @@
   display: flex;
  }
 
- .heroes button{
+ .heroes a{
   flex: 1;
   display: flex;
   position: relative;
@@ -24,24 +24,24 @@
 
  }
 
- .heroes button:hover{
+ .heroes a:hover{
   color: #2c3a41;
   background-color: #e6e6e6;
   left: 1em;
  }
 
- .heroes button:active{
+ .heroes a:active{
   background-color: #505050;
   color: #FFFF;
  }
 
- .heroes button.selected{
+ .heroes a.selected{
   background-color: #000F;
   color:#FFF;
   left: 1em;
  }
 
- .heroes button.selected:hover {
+ .heroes a.selected:hover {
   background-color: #505050;
   color: white;
  }
@@ -49,16 +49,19 @@
  .heroes .badge{
   display: inline;
   font-size: small;
+  text-decoration: none;
   color: white;
-  padding: .4em .8em;
+  padding: .6em .8em;
   background-color: #405061;
   line-height: 1;
   margin-right: 1em;
   align-self: center;
+  border-radius: 2px;
  }
 
  .heroes .name{
   align-self: center;
+  text-decoration: none;
  }
 
 
